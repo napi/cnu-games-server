@@ -1,5 +1,6 @@
 package kr.ac.cnu.games.poker;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
  * Created by rokim on 2017. 6. 4..
  */
 public class HandsTest {
+    @Ignore
     @Test
     public void test_숫자() {
         List<Card> cardList = new ArrayList<>();
@@ -28,6 +30,7 @@ public class HandsTest {
         assertThat(hands.getCardList().get(0).getNumber(), is(11));
     }
 
+    @Ignore
     @Test
     public void test_모양() {
         List<Card> cardList = new ArrayList<>();

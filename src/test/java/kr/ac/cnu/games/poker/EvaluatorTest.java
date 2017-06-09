@@ -1,6 +1,7 @@
 package kr.ac.cnu.games.poker;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class EvaluatorTest {
     }
 
     // <!-- High CARD 테스트
+    @Ignore
     @Test
     public void evaluateHighCard1() {
         List<Hands> handsList = new ArrayList<>();
@@ -42,6 +44,7 @@ public class EvaluatorTest {
 
 
     // <!-- Low CARD 테스트
+    @Ignore
     @Test
     public void evaluateLowCard1() {
         List<Hands> handsList = new ArrayList<>();
