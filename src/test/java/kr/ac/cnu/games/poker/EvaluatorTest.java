@@ -44,7 +44,6 @@ public class EvaluatorTest {
 
 
     // <!-- Low CARD 테스트
-    @Ignore
     @Test
     public void evaluateLowCard1() {
         List<Hands> handsList = new ArrayList<>();
@@ -52,7 +51,7 @@ public class EvaluatorTest {
         handsList.add(getFlush());
 
         List<Hands> resultList = evaluator.evalauteLowHands(handsList);
-
+        System.out.print(handsList);
         assertThat(resultList.get(0).getHandsType(), is(HandsType.STRIGHT));
         assertThat(resultList.get(1).getHandsType(), is(HandsType.FLUSH));
 
@@ -84,7 +83,7 @@ public class EvaluatorTest {
         cardList.add(new Card(3, Suit.HEARTS));
         cardList.add(new Card(4, Suit.CLUBS));
 
-        return new Hands(HandsType.FLUSH, cardList);
+        return new Hands(HandsType.STRIGHT, cardList);
     }
 
 }
