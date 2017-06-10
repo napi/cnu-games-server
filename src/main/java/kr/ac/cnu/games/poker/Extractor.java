@@ -112,13 +112,13 @@ public class Extractor {
                 result = new Hands(HandsType.THREE_CARD,minCardList);
                 break;
             case 4:
-                result = new Hands(HandsType.STRAIGHT,minCardList);
+                result = new Hands(HandsType.STRIGHT,minCardList);
                 break;
             case 5:
-                result = new Hands(HandsType.STRAIGHT,minCardList);
+                result = new Hands(HandsType.STRIGHT,minCardList);
                 break;
             case 6:
-                result = new Hands(HandsType.STRAIGHT,minCardList);
+                result = new Hands(HandsType.STRIGHT,minCardList);
                 break;
             case 7:
                 result = new Hands(HandsType.FLUSH,minCardList);
@@ -130,7 +130,7 @@ public class Extractor {
                 result = new Hands(HandsType.FOUR_CARD,minCardList);
                 break;
             default:
-                result = new Hands(HandsType.STRAIGHT_FLUSH,minCardList);
+                result = new Hands(HandsType.STRIGHT_FLUSH,minCardList);
 
         }
         return result;
