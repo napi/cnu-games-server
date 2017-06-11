@@ -25,7 +25,7 @@ public class ExtractorTest {
         // given
         List<Card> cardList = new ArrayList<>();
         cardList.add(new Card(1, Suit.HEARTS));
-        cardList.add(new Card(5, Suit.HEARTS));
+        cardList.add(new Card(6, Suit.HEARTS));
         cardList.add(new Card(7, Suit.HEARTS));
         cardList.add(new Card(8, Suit.HEARTS));
         cardList.add(new Card(9, Suit.HEARTS));
@@ -46,7 +46,7 @@ public class ExtractorTest {
         // given
         List<Card> cardList = new ArrayList<>();
         cardList.add(new Card(1, Suit.HEARTS));
-        cardList.add(new Card(6, Suit.HEARTS));
+        cardList.add(new Card(5, Suit.HEARTS));
         cardList.add(new Card(7, Suit.HEARTS));
         cardList.add(new Card(8, Suit.HEARTS));
         cardList.add(new Card(9, Suit.HEARTS));
