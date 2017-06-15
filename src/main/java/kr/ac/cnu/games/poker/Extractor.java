@@ -67,14 +67,6 @@ public class Extractor {
             return HandsType.NOTHING;
         }
 
-        private boolean getRoyalStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
-            return getFlush(suitMap) && getMountain(integerMap);
-        }
-
-        private boolean getBackStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
-            return getFlush(suitMap) && getBackStraight(integerMap);
-        }
-
         // Straight Flush인지 확인하기 위한 함수, 조건에 맞기 위해서 Straight함수와 Flush함수 이용
         private boolean getStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
             return getStraight(integerMap) && getFlush(suitMap);
@@ -102,14 +94,6 @@ public class Extractor {
                 }
             }
             return triple != 0 && pair != 0;
-        }
-
-        private boolean getBackStraight(Map<Integer, Integer> integerMap){
-            return integerMap.containsKey(1) && integerMap.containsKey(2) && integerMap.containsKey(3) && integerMap.containsKey(4) && integerMap.containsKey(5);
-        }
-
-        private boolean getMountain(Map<Integer, Integer> integerMap){
-            return integerMap.containsKey(10) && integerMap.containsKey(11) &&integerMap.containsKey(12) && integerMap.containsKey(13) && integerMap.containsKey(1);
         }
 
         // Flush인지 확인하기 위한 함수
