@@ -99,7 +99,9 @@ public class Extractor {
         // Flush인지 확인하기 위한 함수
         private boolean getFlush(Map<Suit, Integer> suitMap) {
             for(Suit key : suitMap.keySet()){
-                return suitMap.get(key) == 5;
+                if(suitMap.get(key) == 5){ //기존 코드에 조건문 추가 적용 by dhn
+                    return true;
+                }
             }
             return false;
         }
@@ -124,7 +126,9 @@ public class Extractor {
         // Triple인지 확인하기 위한 함수
         private boolean getTriple(Map<Integer, Integer> integerMap) {
             for(Integer key : integerMap.keySet()){
-                return integerMap.get(key) == 3;
+                if(integerMap.get(key) == 3){ //기존 코드에 조건문 추가 적용 by dhn
+                    return true;
+                }
             }
             return false;
         }
@@ -143,7 +147,9 @@ public class Extractor {
         // One Pair인지 확인하기 위한 함수
         private boolean getOnePair(Map<Integer, Integer> integerMap) {
             for(Integer key : integerMap.keySet()){
-                return integerMap.get(key) == 2;
+                if(integerMap.get(key) == 2){ //기존 코드에 조건문 추가 적용 by dhn
+                    return true;
+                }
             }
             return false;
         }
