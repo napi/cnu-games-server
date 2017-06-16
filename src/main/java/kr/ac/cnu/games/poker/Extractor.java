@@ -99,7 +99,9 @@ public class Extractor {
         // Flush인지 확인하기 위한 함수
         private boolean getFlush(Map<Suit, Integer> suitMap) {
             for(Suit key : suitMap.keySet()){
-                return suitMap.get(key) == 5;
+                if(suitMap.get(key) == 5){ //기존 코드에 조건문 추가 적용 by dhn
+                    return true;
+                }
             }
             return false;
         }
