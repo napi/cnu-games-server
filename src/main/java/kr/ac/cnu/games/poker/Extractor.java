@@ -143,7 +143,9 @@ public class Extractor {
         // One Pair인지 확인하기 위한 함수
         private boolean getOnePair(Map<Integer, Integer> integerMap) {
             for(Integer key : integerMap.keySet()){
-                return integerMap.get(key) == 2;
+                if(integerMap.get(key) == 2){ //기존 코드에 조건문 추가 적용 by dhn
+                    return true;
+                }
             }
             return false;
         }
