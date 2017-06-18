@@ -46,4 +46,24 @@ public class DemoApplicationTests {
 		assertThat(result.getHandsType(), is(HandsType.FLUSH));
 	}
 
+	@Test
+	public void 가장높은조합추출_스트레이트_테스트(){
+		Extractor extractor = new Extractor();
+		List<Card> cardList = new ArrayList<>();
+
+
+		cardList.add(new Card(2, Suit.DIAMONDS));
+		cardList.add(new Card(6, Suit.HEARTS));
+		cardList.add(new Card(7, Suit.HEARTS));
+		cardList.add(new Card(8, Suit.SPADES));
+		cardList.add(new Card(9, Suit.HEARTS));
+		cardList.add(new Card(10, Suit.DIAMONDS));
+		cardList.add(new Card(5, Suit.DIAMONDS));
+
+
+		Hands result = extractor.extractHighHands(cardList);
+
+		assertThat(result.getHandsType(), is(HandsType.STRIGHT));
+	}
+
 }
