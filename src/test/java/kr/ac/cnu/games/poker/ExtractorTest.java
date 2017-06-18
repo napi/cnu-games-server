@@ -16,11 +16,6 @@ import static org.junit.Assert.*;
 public class ExtractorTest {
     private Extractor extractor;
 
-    @Before
-    public void setUp() {
-        extractor = new Extractor();
-    }
-
     @Ignore
     @Test
     public void extractHighHands1() {
@@ -40,6 +35,27 @@ public class ExtractorTest {
         assertThat(hands.getHandsType(), is(HandsType.FLUSH));
         // 가장 높은 카드는 Ace (1 또는 14)인 1 이 되어야 한다.
         assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(1));
+    }@Ignore
+    @Test
+    public void 스트레이트플러시테스트() {
+        List<Card> cardList = new ArrayList<>();
+        cardList.add(new Card(10, Suit.DIAMONDS));
+        cardList.add(new Card(11, Suit.DIAMONDS));
+        cardList.add(new Card(5, Suit.SPADES));
+        cardList.add(new Card(6, Suit.SPADES));
+        cardList.add(new Card(7, Suit.SPADES));
+        cardList.add(new Card(9, Suit.SPADES));
+        cardList.add(new Card(8, Suit.SPADES));
+
+
+        Hands hands = extractor.extractHighHands(cardList);
+        assertThat(hands.getHandsType(), is(HandsType.STRIGHT_FLUSH));
+        assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(11));
+    }
+
+    @Before
+    public void setUp() {
+        extractor = new Extractor();
     }
 
     @Ignore
