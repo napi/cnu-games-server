@@ -2,6 +2,7 @@ package kr.ac.cnu.games.poker;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,22 +107,46 @@ public class Extractor {
             return false;
         }
 
-        //Straight인지 확인하기 위한 함수
+        //Straight인지 확인하기 위한 함수 새로운 arrayList를 사용함
         private boolean getStraight(Map<Integer, Integer> integerMap){
-            int min = 14;
+            int count = 0;
             int max = 0;
+            int gap;
 
-            for(int key : integerMap.keySet()){
-                if(integerMap.get(key) >= 2){
-                    return false;
-                }
-                if(integerMap.get(key) == 1){
-                    min = min < key? min : key;
-                    max = max > key? max : key;
+            List<Integer> tempList = new ArrayList<>();
+
+            for(int key = 1; key < 14; key++){
+                if(integerMap.get(key) != null) {
+                    for (int i = 0; i < integerMap.get(key); i++) {
+                        tempList.add(new Integer(key));
+                    }
                 }
             }
-            return max - min == 4;
+
+            for(int i = 0; i < tempList.size(); i++){
+                if(i == 0)
+                    max = tempList.get(i);
+                else{
+                    gap = tempList.get(i) - tempList.get(i-1);
+                    if(gap == 1){
+                        count++;
+                        max = tempList.get(i);
+                    }
+                    else if(gap == 0){
+
+                    }
+                    else{
+                        count = 0;
+                    }
+                }
+            }
+            if(count == 3 && max == 13){
+                if(tempList.get(0) == 1)
+                    return true;
+            }
+            return count >= 4;
         }
+
 
         // Triple인지 확인하기 위한 함수
         private boolean getTriple(Map<Integer, Integer> integerMap) {
