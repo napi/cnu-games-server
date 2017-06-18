@@ -107,7 +107,7 @@ public class Extractor {
             return false;
         }
 
-        //Straight인지 확인하기 위한 함수
+        //Straight인지 확인하기 위한 함수 새로운 arrayList를 사용함
         private boolean getStraight(Map<Integer, Integer> integerMap){
             int count = 0;
             int max = 0;
