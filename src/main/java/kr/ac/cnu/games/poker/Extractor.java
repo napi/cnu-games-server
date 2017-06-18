@@ -55,7 +55,7 @@ public class Extractor {
             }
 
             // 족보 순서대로 비교확인하여 일치하면 반환시
-            if(getStraightFlush(suitMap, integerMap)) return HandsType.STRIGHT_FLUSH;
+            if(getStraightFlush(suitMap, cardList)) return HandsType.STRIGHT_FLUSH;
             if(getFourCard(integerMap)) return HandsType.FOUR_CARD;
             if(getFullHouse(integerMap)) return HandsType.FULL_HOUSE;
             if(getFlush(suitMap)) return HandsType.FLUSH;
@@ -68,9 +68,31 @@ public class Extractor {
             return HandsType.NOTHING;
         }
 
-        // Straight Flush인지 확인하기 위한 함수, 조건에 맞기 위해서 Straight함수와 Flush함수 이용
-        private boolean getStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
-            return getStraight(integerMap) && getFlush(suitMap);
+        //본래 Suit와 관계없이 STRIGHT여부를 계산하여 수정
+        private boolean getStraightFlush(Map<Suit, Integer> suitMap, List<Card> cardList){
+            Suit canFlush = null;//FLUSH가 될 수 있는 Suit를 임시저장할 변수
+            for(Suit key : suitMap.keySet()){
+                if(suitMap.get(key) == 5)
+                    canFlush = key;//FLUSH가 될 수 있는 Suit저장
+            }
+            if(canFlush == null)
+                return false;//FLUSH가 될 수 없다면 STRIGHT_FLUSH도 될 수 없음
+            List<Card> tempList = new ArrayList<>();//STRIGHT여부를 확인할 Card들을 임시저장할 변수
+            for(Card card : cardList){
+                if(card.getSuit() == canFlush)
+                    tempList.add(card);//canFlush에 저장된 Suit와 같은 Suit를 갖는 Card들 저장
+            }
+            Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();//tempList를 number, 개수로 맵핑할 변수
+            for(Card card : tempList){//임시 맵에 맵핑하는 반복문
+                if (tempMap.containsKey(card.getNumber())) {
+                    Integer count = tempMap.get(card.getNumber());
+                    count = count + 1;
+                    tempMap.put(card.getNumber(), count);
+                } else {
+                    tempMap.put(card.getNumber(), 1);
+                }
+            }
+            return getStraight(tempMap);//임시 맵으로 STRIGHT여부 판단 참일 경우 FLUSH이며 STRIGHT이므로 STRIGHT_FLUSH만족
         }
 
         // Four Card인지 확인하기 위한 함수
