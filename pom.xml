@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>kr.ac.cnu.games</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>cnugamesserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo</name>
+	<name>cnu-games-server</name>
 	<description>Games server for websocket</description>
 
 	<parent>
