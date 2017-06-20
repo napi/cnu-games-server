@@ -47,6 +47,25 @@ public class Evaluator {
                     }
 
                     else if(o1.getHandsType() == HandsType.FLUSH) {
+                        int i = 0;
+                        int j = 0;
+
+                        while(o1.getCardList().get(i).getNumber()!=o1.getCardList().get(i+1).getNumber()) {
+                            i++;
+
+                        }
+                        while(o2.getCardList().get(j).getNumber()!=o2.getCardList().get(j+1).getNumber()){
+                            j++;
+                        }
+
+                        if(o1.getCardList().get(i).getNumber() != o1.getCardList().get(i+1).getNumber()){
+                            if(o2.getCardList().get(j).getNumber() = o2.getCardList().get(j+1).getNumber())
+                                return 1;
+                            return -1;
+                        }
+
+
+
 
                     }
 
