@@ -72,12 +72,21 @@ public class Evaluator {
 
                     }
 
-
+                    //플러쉬일 경우 문자 비교
                     else if(o1.getHandsType() == HandsType.FLUSH) {
+                        if (o1.getCardList().get(0).getSuit().compareTo(o2.getCardList().get(0).getSuit()) > 1) {
+                            return 1;
+                        } else
+                            return -1;
                     }
 
-
+                    //스트레이트일경우 큰 숫자 비교
                     else if(o1.getHandsType() == HandsType.STRIGHT) {
+                        if(o1.getCardList().get(0).getNumber() > o2.getCardList().get(0).getNumber()) {
+                            return -1;
+                        }
+                        else
+                            return 1;
                     }
                 }
 
@@ -108,4 +117,3 @@ public class Evaluator {
 
 
 }
-
