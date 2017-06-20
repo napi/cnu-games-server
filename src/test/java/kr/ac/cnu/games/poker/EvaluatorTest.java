@@ -77,7 +77,6 @@ public class EvaluatorTest {
         assertThat(resultList.get(1).getCardList().get(0).getNumber(), is(9));
     }
 
-    @Ignore
     @Test
     //같을 때 무늬로 비교
     public void evaluateHighCardFlush() {
@@ -94,7 +93,6 @@ public class EvaluatorTest {
         assertThat(resultList.get(1).getCardList().get(0).getSuit(), is(Suit.CLUBS));
 
     }
-    @Ignore
     @Test
     //같을 때 5개의 수 정렬 중 큰 수를 비교
     public void evaluateHighCardStraight() {
@@ -134,7 +132,7 @@ public class EvaluatorTest {
     // High CARD 테스트 -->
 
 
-@Ignore
+
     // <!-- Low CARD 테스트
     @Test
     public void evaluateLowCard1() {
