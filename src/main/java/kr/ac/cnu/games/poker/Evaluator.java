@@ -17,6 +17,7 @@ public class Evaluator {
 
         Comparator<Hands> sort = new Comparator<Hands>() {
             public int compare(Hands o1, Hands o2) {
+
                 //handtype 이 같을 때
                 if(o1.getHandsType().compareTo(o2.getHandsType()) == 0){
                     //원페어 투페어 쓰리카드 포카드 일 경우
@@ -90,6 +91,14 @@ public class Evaluator {
             return -1;
         else
             return 1;
+=======
+                return (o1.getHandsType().compareTo(o2.getHandsType()));
+            }
+        };
+        Collections.sort(handsList, sort);
+
+        return handsList;
+
     }
 
     public List<Hands> evalauteLowHands(List<Hands> handsList) {
