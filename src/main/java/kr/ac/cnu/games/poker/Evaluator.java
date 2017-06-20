@@ -14,13 +14,6 @@ import java.util.List;
 @Component
 public class Evaluator {
     public List<Hands> evalauteHighHands(List<Hands> handsList) {
-        // hansList 의 HandType 을 확인
-        // get~~~ 하여 확인한 뒤 ordering
-        // 이 때 같은 HandsType 의 경우 모양 숫자도 확인
-
-//        boolean isSameHandsType;
-//
-//        return null;
 
         Comparator<Hands> sort = new Comparator<Hands>() {
             public int compare(Hands o1, Hands o2) {
