@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
  */
 @Data
 public class Hands {
+
     private final HandsType handsType;
     private final List<Card> cardList;
 
@@ -17,6 +18,8 @@ public class Hands {
         this.handsType = handsType;
 
         this.cardList = cardList;
+
+
 //        this.cardList = cardList
 //                .stream()
 //                .sorted((o1, o2) -> {
@@ -27,5 +30,9 @@ public class Hands {
 //                    return o1.getSuit().compareTo(o2.getSuit());
 //                })
 //                .collect(Collectors.toList());
+    }
+
+    public HandsType getHandsType() {
+        return handsType;
     }
 }
