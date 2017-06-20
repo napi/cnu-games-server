@@ -48,7 +48,7 @@ public class ExtractorTest {
         // given
         List<Card> cardList = new ArrayList<>();
         cardList.add(new Card(1, Suit.HEARTS));
-        cardList.add(new Card(6, Suit.HEARTS));
+        cardList.add(new Card(5, Suit.HEARTS));
         cardList.add(new Card(7, Suit.HEARTS));
         cardList.add(new Card(8, Suit.HEARTS));
         cardList.add(new Card(9, Suit.HEARTS));
@@ -63,4 +63,46 @@ public class ExtractorTest {
         assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(10));
 
     }
+    @Test
+    public void extractLowHands2() {
+        // given
+        List<Card> cardList = new ArrayList<>();
+        cardList.add(new Card(2, Suit.HEARTS));
+        cardList.add(new Card(4, Suit.DIAMONDS));
+        cardList.add(new Card(8, Suit.SPADES));
+        cardList.add(new Card(8, Suit.HEARTS));
+        cardList.add(new Card(10, Suit.HEARTS));
+        cardList.add(new Card(10, Suit.DIAMONDS));
+        cardList.add(new Card(11, Suit.DIAMONDS));
+
+
+        Hands hands = extractor.extractLowHands(cardList);
+        // 2페어 중 한 카드씩만 고를 경우 최소는 NOTHING이 될 수 있다.
+        assertThat(hands.getHandsType(), is(HandsType.NOTHING));
+        // 1페어도 안 나오게 해야 하므로 8과 10은 하나만 들어갈 수 있다. 그러므로 11이 나오게 된다.
+        assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(11));
+
+    }
+
+    @Test
+    public void extractLowHands3() {
+        // given
+        List<Card> cardList = new ArrayList<>();
+        cardList.add(new Card(2, Suit.DIAMONDS));
+        cardList.add(new Card(3, Suit.DIAMONDS));
+        cardList.add(new Card(4, Suit.DIAMONDS));
+        cardList.add(new Card(5, Suit.DIAMONDS));
+        cardList.add(new Card(6, Suit.DIAMONDS));
+        cardList.add(new Card(7, Suit.DIAMONDS));
+        cardList.add(new Card(8, Suit.DIAMONDS));
+
+
+        Hands hands = extractor.extractLowHands(cardList);
+        // 모든 카드가 같으므로 최소가 FLUSH이어야 한다.
+        assertThat(hands.getHandsType(), is(HandsType.FLUSH));
+        // Stragiht 플러시가 아니어야 하므로 한칸 띄워진 7이 가장 큰 숫자가 될 것이다.
+        assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(7));
+
+    }
+
 }
