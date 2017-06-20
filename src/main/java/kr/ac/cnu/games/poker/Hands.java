@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 public class Hands {
 
     private final HandsType handsType;
+
+
     private final List<Card> cardList;
 
     public Hands(HandsType handsType, List<Card> cardList) {
@@ -34,5 +36,9 @@ public class Hands {
 
     public HandsType getHandsType() {
         return handsType;
+    }
+
+    public List<Card> getCardList() {
+        return cardList;
     }
 }

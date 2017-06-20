@@ -21,6 +21,18 @@ public class LowCardComparator implements Comparator<Card> {
         }
 
     }
+    public int compare(Card o1, Card o2, int i) {
+        if (o1.getNumber() == o2.getNumber()) {
+            return 0;
+        }
 
+        if (o1.getNumber() == 1) {
+            return 1;
+        } else if (o2.getNumber() == 1) {
+            return -1;
+        } else {
+            return o2.getNumber() - o1.getNumber();
+        }
+    }
 
 }
