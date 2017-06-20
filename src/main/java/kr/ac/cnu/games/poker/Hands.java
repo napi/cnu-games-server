@@ -17,22 +17,24 @@ public class Hands {
     public Hands(HandsType handsType, List<Card> cardList) {
         this.handsType = handsType;
 
-        this.cardList = cardList;
+//        this.cardList = cardList;
 
 
-//        this.cardList = cardList
-//                .stream()
-//                .sorted((o1, o2) -> {
-//                    if (o1.getNumber() != o2.getNumber()) {
-//                        return o2.getNumber() - o1.getNumber();
-//                    }
-//
-//                    return o1.getSuit().compareTo(o2.getSuit());
-//                })
-//                .collect(Collectors.toList());
+        this.cardList = cardList
+                .stream()
+                .sorted((o1, o2) -> {
+                    if (o1.getNumber() != o2.getNumber()) {
+                        return o2.getNumber() - o1.getNumber();
+                    }
+
+                    return o1.getSuit().compareTo(o2.getSuit());
+                })
+                .collect(Collectors.toList());
     }
 
     public HandsType getHandsType() {
         return handsType;
     }
+
+
 }
