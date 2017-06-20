@@ -22,7 +22,7 @@ public class EvaluatorTest {
     }
 
     // <!-- High CARD 테스트
-    @Ignore
+
     @Test
     public void evaluateHighCard1() {
         List<Hands> handsList = new ArrayList<>();
@@ -35,6 +35,8 @@ public class EvaluatorTest {
         assertThat(resultList.get(1).getHandsType(), is(HandsType.STRIGHT));
     }
 
+
+
     // TODO 각 HandsType 에 맞춰 ordering 이 잘 되는지 확인
     // TODO HandsType 이 같을때 가장 높은 숫자로 odering 이 되는지 확인.
 
@@ -42,7 +44,7 @@ public class EvaluatorTest {
     // High CARD 테스트 -->
 
 
-
+@Ignore
     // <!-- Low CARD 테스트
     @Test
     public void evaluateLowCard1() {
@@ -85,5 +87,4 @@ public class EvaluatorTest {
 
         return new Hands(HandsType.STRIGHT, cardList);
     }
-
 }

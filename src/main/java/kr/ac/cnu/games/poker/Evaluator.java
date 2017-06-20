@@ -18,9 +18,18 @@ public class Evaluator {
         // get~~~ 하여 확인한 뒤 ordering
         // 이 때 같은 HandsType 의 경우 모양 숫자도 확인
 
-        boolean isSameHandsType;
+//        boolean isSameHandsType;
+//
+//        return null;
 
-        return null;
+        Comparator<Hands> sort = new Comparator<Hands>() {
+            public int compare(Hands o1, Hands o2) {
+                return (o1.getHandsType().compareTo(o2.getHandsType()));
+            }
+        };
+        Collections.sort(handsList, sort);
+
+        return handsList;
     }
 
     public List<Hands> evalauteLowHands(List<Hands> handsList) {
