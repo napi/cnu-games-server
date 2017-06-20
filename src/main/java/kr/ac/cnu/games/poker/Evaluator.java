@@ -47,25 +47,10 @@ public class Evaluator {
                     }
 
                     else if(o1.getHandsType() == HandsType.FLUSH) {
-                        int i = 0;
-                        int j = 0;
 
-                        while(o1.getCardList().get(i).getNumber()!=o1.getCardList().get(i+1).getNumber()) {
-                            i++;
-
-                        }
-                        while(o2.getCardList().get(j).getNumber()!=o2.getCardList().get(j+1).getNumber()){
-                            j++;
-                        }
-
-                        if(o1.getCardList().get(i).getNumber() != o1.getCardList().get(i+1).getNumber()){
-                            if(o2.getCardList().get(j).getNumber() = o2.getCardList().get(j+1).getNumber())
-                                return 1;
-                            return -1;
-                        }
-
-
-
+                        if(o1.getCardList().get(0).getSuit() > o2.getCardList().get(0).getSuit())
+                                return -1;
+                            return 1;
 
                     }
 
@@ -74,6 +59,9 @@ public class Evaluator {
                     }
 
                     else if(o1.getHandsType() == HandsType.STRIGHT_FLUSH) {
+                        if(o2.getHandsType() == HandsType.FLUSH) {
+                        }
+                        }
 
                     }
                     else if(o1.getHandsType() == HandsType.STRIGHT) {
