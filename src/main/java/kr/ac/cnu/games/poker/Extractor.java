@@ -145,7 +145,7 @@ public class Extractor {
     }
 
     // 가지고 있는 카드의 족보를 확인하기 위한 inner Class
-    public class Evaluator5zo {
+    private class Evaluator5zo {
         public HandsType evaluate(List<Card> cardList) {
             // suit가 몇개 나오는지 같은 숫자가 몇개 있는지 확인하기 위해서 Map에다가 저장
             Map<Suit, Integer> suitMap = new HashMap<Suit, Integer>();
@@ -319,7 +319,7 @@ public class Extractor {
             return false;
         }
     }
-=======
+
     public int evaluate(List<Card> cardList) {
         boolean isFlush = flush(cardList);
 
