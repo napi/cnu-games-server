@@ -336,10 +336,6 @@ public class EvaluatorTest {
         cardList.add(new Card(1, Suit.HEARTS));
         cardList.add(new Card(3, Suit.HEARTS));
         cardList.add(new Card(9, Suit.SPADES));
-<<<<<<< HEAD
-
-=======
->>>>>>> 47b7e1f2b5f2c75b52a475c7cb71cc2dc5925b37
         return new Hands(HandsType.ONE_PAIR, cardList);
     }
 
@@ -399,7 +395,6 @@ public class EvaluatorTest {
         return new Hands(HandsType.FULL_HOUSE, cardList);
     }
 
-<<<<<<< HEAD
     private Hands getFullhouse10() {
         List<Card> cardList = new ArrayList<>();
         cardList.add(new Card(10, Suit.HEARTS));
@@ -410,19 +405,6 @@ public class EvaluatorTest {
         return new Hands(HandsType.ONE_PAIR, cardList);
     }
 
-=======
-//    private Hands getFullhouse10() {
-//        List<Card> cardList = new ArrayList<>();
-//        cardList.add(new Card(10, Suit.HEARTS));
-//        cardList.add(new Card(10, Suit.CLUBS));
-//        cardList.add(new Card(10, Suit.SPADES));
-//        cardList.add(new Card(3, Suit.SPADES));
-//        cardList.add(new Card(3, Suit.HEARTS));
-//=======
-//        return new Hands(HandsType.ONE_PAIR, cardList);
-//    }
-//
->>>>>>> 47b7e1f2b5f2c75b52a475c7cb71cc2dc5925b37
     private Hands getNothing() {
         List<Card> cardList = new ArrayList<>();
         cardList.add(new Card(1, Suit.CLUBS));
