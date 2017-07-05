@@ -16,7 +16,6 @@ import static org.junit.Assert.*;
 public class ExtractorTest {
     private Extractor extractor;
 
-    @Ignore
     @Test
     public void extractHighHands1() {
         // given
@@ -35,7 +34,8 @@ public class ExtractorTest {
         assertThat(hands.getHandsType(), is(HandsType.FLUSH));
         // 가장 높은 카드는 Ace (1 또는 14)인 1 이 되어야 한다.
         assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(1));
-    }@Ignore
+    }
+
     @Test
     public void 스트레이트플러시테스트() {
         List<Card> cardList = new ArrayList<>();
@@ -53,12 +53,30 @@ public class ExtractorTest {
         assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(11));
     }
 
+    @Test
+    public void a() {
+        List<Card> cardList = new ArrayList<>();
+        cardList.add(new Card(2, Suit.DIAMONDS));
+        cardList.add(new Card(5, Suit.DIAMONDS));
+        cardList.add(new Card(5, Suit.SPADES));
+        cardList.add(new Card(5, Suit.CLUBS));
+        cardList.add(new Card(6, Suit.CLUBS));
+        cardList.add(new Card(6, Suit.HEARTS));
+        cardList.add(new Card(6, Suit.SPADES));
+
+
+        Hands hands = extractor.extractHighHands(cardList);
+        assertThat(hands.getHandsType(), is(HandsType.STRIGHT_FLUSH));
+        assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(11));
+    }
+
+
     @Before
     public void setUp() {
         extractor = new Extractor();
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void extractLowHands1() {
         // given
@@ -75,6 +93,7 @@ public class ExtractorTest {
         Hands hands = extractor.extractLowHands(cardList);
         // 로우싸움에서 핸드는 1,2,3,8 HEARTS, 10DIAMONDS 로 Type이 NOTHING이 되어야 하며,
         assertThat(hands.getHandsType(), is(HandsType.NOTHING));
+        System.out.println(hands.getCardList());
         // Ace는 1 또는 14으로 쓰일 수 있기 때문에, 가장 높은 카드는 10이 되어야 한다. (낮을 수록 좋다.)
         assertThat(hands.getCardList().stream().min(new HighCardComparator()).get().getNumber(), is(10));
 

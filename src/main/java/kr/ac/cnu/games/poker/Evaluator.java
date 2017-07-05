@@ -85,20 +85,16 @@ public class Evaluator {
         int i = 0;
         int j = 0;
 
-        while(o1.getCardList().get(i).getNumber()!=o1.getCardList().get(i+1).getNumber()) { i++;}
-        while(o2.getCardList().get(j).getNumber()!=o2.getCardList().get(j+1).getNumber()) { j++;}
-        if(o1.getCardList().get(i).getNumber() > o2.getCardList().get(j).getNumber())
+        while (o1.getCardList().get(i).getNumber() != o1.getCardList().get(i + 1).getNumber()) {
+            i++;
+        }
+        while (o2.getCardList().get(j).getNumber() != o2.getCardList().get(j + 1).getNumber()) {
+            j++;
+        }
+        if (o1.getCardList().get(i).getNumber() > o2.getCardList().get(j).getNumber())
             return -1;
         else
             return 1;
-=======
-                return (o1.getHandsType().compareTo(o2.getHandsType()));
-            }
-        };
-        Collections.sort(handsList, sort);
-
-        return handsList;
-
     }
 
     public List<Hands> evalauteLowHands(List<Hands> handsList) {
